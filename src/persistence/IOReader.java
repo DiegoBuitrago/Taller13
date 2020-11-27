@@ -19,7 +19,6 @@ public class IOReader {
         listRi = new ArrayList<>();
         StringBuilder sb = new StringBuilder();
         Path filePath = Paths.get("src/files/archivoCsv.csv");
-
         try {
             BufferedReader br = Files.newBufferedReader(filePath);
             String line;

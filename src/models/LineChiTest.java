@@ -14,6 +14,14 @@ public class LineChiTest {
         this.finall = finall;
     }
 
+    public double getInitial() {
+        return initial;
+    }
+
+    public double getFinall() {
+        return finall;
+    }
+
     @Override
     public String toString() {
         return "LineChiTest{" +

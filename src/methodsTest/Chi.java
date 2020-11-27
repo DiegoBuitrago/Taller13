@@ -31,6 +31,7 @@ public class Chi {
         minNi();
         maxNi();
         interval();
+        frecobt();
     }
 
     private void calculateNi() {
@@ -58,14 +59,40 @@ public class Chi {
 
     private void interval(){
         int id = 0;
+        double newInterval = 0.0;
         double myMinNi = this.minNi;
         for (int i=0;i<this.numIntervalos;i++){
             id++;
-            lines.add(new LineChiTest(id, myMinNi, 8));
+            newInterval = newInterval(myMinNi);
+            lines.add(new LineChiTest(id, myMinNi, newInterval));
+            myMinNi = newInterval;
         }
     }
 
     private double newInterval(double li){
-        return 0.0;
+        return li+(this.maxNi-this.minNi)/numIntervalos;
+    }
+
+    private void frecobt(){
+        double ini = 0.0;
+        double fin = 0.0;
+        int count = 0;
+        double numNi = 0.0;
+        for (int i=0;i<this.lines.size();i++){
+            LineChiTest line = this.lines.get(i);
+            ini = line.getInitial();
+            fin = line.getFinall();
+            for (int j=0;j<this.intros.size();i++){
+                Intro intro = this.intros.get(j);
+                numNi = intro.getNi();
+                if(numNi > ini && numNi < fin){
+                    count++;
+                }
+            }
+        }
+    }
+
+    public ArrayList<LineChiTest> getLines() {
+        return lines;
     }
 }

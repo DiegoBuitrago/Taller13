@@ -16,6 +16,7 @@ public class TestChi {
 //        System.out.println(""+hola);
 
         ArrayList<Intro> list = new ArrayList<Intro>();
+
         list.add(new Intro(0.1214));
         list.add(new Intro(0.4267));
         list.add(new Intro(0.1379));
@@ -31,7 +32,6 @@ public class TestChi {
         list.add(new Intro(0.1266));
         list.add(new Intro(0.6429));
         list.add(new Intro(0.8298));
-
 //
         int min = 8;
         int max = 10;

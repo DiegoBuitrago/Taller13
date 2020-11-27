@@ -9,6 +9,10 @@ public class Intro {
         this.ni = 0.0;
     }
 
+    public double getRi(){
+        return ri;
+    }
+
     public void calculateNi(int min, int max) {
         this.ni = min+(max-min)*this.ri;
     }

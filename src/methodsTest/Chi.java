@@ -73,7 +73,6 @@ public class Chi {
     }
 
     private void frecobt(){
-        System.out.println("eee");
         double ini = 0.0;
         double fin = 0.0;
         int count = 0;
@@ -85,10 +84,11 @@ public class Chi {
             for (int j = 0; j < this.intros.size(); j++) {
                 Intro intro = this.intros.get(j);
                 numNi = intro.getNi();
-                if (numNi > ini && numNi < fin) {
+                if (numNi >= ini && numNi <= fin) {
                     count++;
                 }
             }
+            this.lines.get(i).setFrecObt(count);
             count = 0;
             System.out.println(this.lines.get(i).toString());
         }

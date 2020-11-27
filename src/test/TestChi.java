@@ -3,6 +3,7 @@ package test;
 import methodsTest.Chi;
 import models.Intro;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class TestChi {
@@ -14,7 +15,16 @@ public class TestChi {
 //        Double dou = new Double("0.151");
 //        double hola = dou.doubleValue();
 //        System.out.println(""+hola);
+        double a = 9.5529999999;
+        DecimalFormat df = new DecimalFormat("#.0000");
+        String b = df.format(a);
 
+        System.out.println(b);
+        double c = Double.parseDouble(b);
+        System.out.println(c);
+    }
+
+    private static void p1(){
         ArrayList<Intro> list = new ArrayList<Intro>();
 
         list.add(new Intro(0.1214));

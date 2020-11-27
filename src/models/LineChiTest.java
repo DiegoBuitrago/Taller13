@@ -1,5 +1,7 @@
 package models;
 
+import java.text.DecimalFormat;
+
 public class LineChiTest {
     private int id;
     private double initial;
@@ -22,6 +24,10 @@ public class LineChiTest {
         return finall;
     }
 
+    public void setFrecObt(int frecObt) {
+        this.frecObt = frecObt;
+    }
+
     @Override
     public String toString() {
         return "LineChiTest{" +
@@ -32,5 +38,9 @@ public class LineChiTest {
                 ", frecEsp=" + frecEsp +
                 ", chi=" + chi +
                 '}';
+    }
+
+    private void format(){
+
     }
 }

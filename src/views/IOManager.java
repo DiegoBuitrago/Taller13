@@ -11,9 +11,10 @@ import java.awt.*;
 public class IOManager extends JFrame {
     
     private PanelRiTable panelRiList;
+    private PanelChiSquareTest panelChiSquareTest;
 
     public IOManager(Controller controller){
-        initPanels();
+        initPanels(controller);
         
         setTitle("Pantalla de Inicio");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -52,18 +53,23 @@ public class IOManager extends JFrame {
         pestañas.addTab("Prueba de medias", new PanelMeanTest());
         pestañas.addTab("Prueba de varianza", new PanelVarianceTest());
         pestañas.addTab("Prueba KS", new PanelKSTest());
-        pestañas.addTab("Prueba Chi^2", new PanelChiSquareTest());
+        pestañas.addTab("Prueba Chi^2", panelChiSquareTest);
         pestañas.addTab("Prueba de Póker", new PanelPokerTest());
         
         setVisible(true);
     }
     
-    private void initPanels(){
+    private void initPanels(Controller controller){
         panelRiList = new PanelRiTable();
+        panelChiSquareTest = new PanelChiSquareTest(controller);
     }
 
     public void fillRiList(double ri, double ni){
         panelRiList.addValues(ri, ni);
+    }
+
+    public void fillResultsChi2(int n, double initialN, double finalN, int frecObt, double frecEsp, double chi2){
+        panelChiSquareTest.addResults(n, initialN, finalN, frecObt, frecEsp, chi2);
     }
 
     public String chooseFile(){
@@ -74,8 +80,11 @@ public class IOManager extends JFrame {
         if(returnVal == JFileChooser.APPROVE_OPTION) {
             System.out.println("You chose to open this file: " + chooser.getSelectedFile().getPath());
             return chooser.getSelectedFile().getPath();
-            // Ir a método read y enviarle file como parametro.
         }
         return null;
+    }
+
+    public int[] getData(){
+        return panelChiSquareTest.getData();
     }
 }

@@ -13,10 +13,10 @@ public class Chi {
     private double minNi;
     private double maxNi;
 
-    private ArrayList<LineChiTest> line;
+    private ArrayList<LineChiTest> lines;
 
     public Chi(ArrayList<Intro> intros, int min, int max, int numIntervalos) {
-        this.line = new ArrayList<LineChiTest>();
+        this.lines = new ArrayList<LineChiTest>();
         this.intros = intros;
         this.min = min;
         this.max = max;
@@ -57,5 +57,15 @@ public class Chi {
     }
 
     private void interval(){
+        int id = 0;
+        double myMinNi = this.minNi;
+        for (int i=0;i<this.numIntervalos;i++){
+            id++;
+            lines.add(new LineChiTest(id, myMinNi, 8));
+        }
+    }
+
+    private double newInterval(double li){
+        return 0.0;
     }
 }

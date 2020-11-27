@@ -8,12 +8,21 @@ public class LineChiTest {
     private double frecEsp;
     private int chi;
 
-    public LineChiTest(int id, double initial, double finall, int frecObt, double frecEsp, int chi) {
+    public LineChiTest(int id, double initial, double finall) {
         this.id = id;
         this.initial = initial;
         this.finall = finall;
-        this.frecObt = frecObt;
-        this.frecEsp = frecEsp;
-        this.chi = chi;
+    }
+
+    @Override
+    public String toString() {
+        return "LineChiTest{" +
+                "id=" + id +
+                ", initial=" + initial +
+                ", finall=" + finall +
+                ", frecObt=" + frecObt +
+                ", frecEsp=" + frecEsp +
+                ", chi=" + chi +
+                '}';
     }
 }

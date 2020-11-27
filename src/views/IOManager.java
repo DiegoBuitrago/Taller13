@@ -17,50 +17,38 @@ public class IOManager extends JFrame {
 
         JPanel cpHeader = new JPanel();
         cpHeader.setBorder(new LineBorder(Color.BLACK,1));
+        cpHeader.setLayout(new BoxLayout(cpHeader, BoxLayout.Y_AXIS));
         add(cpHeader, BorderLayout.PAGE_START);
 
-        JLabel lbIdentify = new JLabel("Programa de números pseudoaleatorios");
+        JPanel cpTitle = new JPanel();
+        cpHeader.add(cpTitle);
+
+        JLabel lbIdentify = new JLabel("Pruebas de números pseudoaleatorios");
         lbIdentify.setFont(new Font("Arial", Font.BOLD, 20));
-        cpHeader.add(lbIdentify);
+        cpTitle.add(lbIdentify);
+        
+        JPanel cpBtnImport = new JPanel();
+        cpHeader.add(cpBtnImport);
+        
+        JButton btnImport = new JButton("Importar");
+        cpBtnImport.add(btnImport);
+
+        JPanel cpCenter = new JPanel();
+        cpCenter.setLayout(new GridLayout(1, 2));
+        add(cpCenter, BorderLayout.CENTER);
+
+        cpCenter.add(new PanelRiTable());
 
         JTabbedPane pestañas=new JTabbedPane();
-        add(pestañas);
+        cpCenter.add(pestañas);
 
-        pestañas.addTab("Cuadrados Medios", new PanelMeanSquares());
-        pestañas.addTab("Congruencia Lineal", createPanelCongruenceLineal());
-        pestañas.addTab("Congruencia Multiplicativa", createPanelCongruenceMult());
-        pestañas.addTab("Distribución uniforme", createPanelUniforDist());
-        pestañas.addTab("Distribución Normal", createPanelNormalDist());
+        pestañas.addTab("Prueba de medias", new PanelMeanTest());
+        pestañas.addTab("Prueba de varianza", new PanelVarianceTest());
+        pestañas.addTab("Prueba KS", new PanelKSTest());
+        pestañas.addTab("Prueba Chi^2", new PanelChiSquareTest());
+        pestañas.addTab("Prueba de Póker", new PanelPokerTest());
 
         setVisible(true);
-    }
-
-    public JPanel createPanelCongruenceLineal(){
-        JPanel panel=new JPanel();
-        JLabel label=new JLabel("Estas en el panel del metodo de congruencia lineal");
-        panel.add(label);
-        return panel;
-    }
-
-    public JPanel createPanelCongruenceMult(){
-        JPanel panel=new JPanel();
-        JLabel label=new JLabel("Estas en el panel del metodo de congruencia multiplicativa");
-        panel.add(label);
-        return panel;
-    }
-
-    public JPanel createPanelUniforDist(){
-        JPanel panel=new JPanel();
-        JLabel label=new JLabel("Estas en el panel de distribución uniforme");
-        panel.add(label);
-        return panel;
-    }
-
-    public JPanel createPanelNormalDist(){
-        JPanel panel=new JPanel();
-        JLabel label=new JLabel("Estas en el panel de distribución normal");
-        panel.add(label);
-        return panel;
     }
 
     public static void main(String[] args) {

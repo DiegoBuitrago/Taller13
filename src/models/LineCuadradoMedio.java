@@ -49,40 +49,8 @@ public class LineCuadradoMedio {
         this.ni = min+(max-min)*this.ri;
     }
 
-    public int getInteraction() {
-        return interaction;
-    }
-
-    public int getXi() {
-        return xi;
-    }
-
-    public long getXi2() {
-        return xi2;
-    }
-
-    public int getExtension() {
-        return extension;
-    }
-
     public int getExtraction() {
         return extraction;
-    }
-
-    public double getRi() {
-        return ri;
-    }
-
-    public double getNi() {
-        return ni;
-    }
-
-    public int getMin() {
-        return min;
-    }
-
-    public int getMax() {
-        return max;
     }
 
     @Override

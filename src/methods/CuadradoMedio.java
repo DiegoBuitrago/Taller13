@@ -1,9 +1,7 @@
 package methods;
 
 import models.LineCuadradoMedio;
-import utilities.Utility;
 
-import javax.sound.sampled.Line;
 import java.util.ArrayList;
 
 public class CuadradoMedio {
@@ -15,6 +13,7 @@ public class CuadradoMedio {
     private ArrayList<LineCuadradoMedio> list;
 
     public CuadradoMedio(int seed, int numInteractions, int minNi, int maxNi){
+        this.list = new ArrayList<LineCuadradoMedio>();
         this.seed = seed;
         this.numInteractions = numInteractions;
         this.minNi = minNi;
@@ -29,5 +28,9 @@ public class CuadradoMedio {
             System.out.println(ln.toString());
             this.seed = ln.getExtraction();
         }
+    }
+
+    public ArrayList<LineCuadradoMedio> getList() {
+        return list;
     }
 }

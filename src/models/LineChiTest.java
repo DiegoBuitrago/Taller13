@@ -6,7 +6,7 @@ public class LineChiTest {
     private double finall;
     private int frecObt;
     private double frecEsp;
-    private int chi;
+    private double chi;
 
     public LineChiTest(int id, double initial, double finall) {
         this.id = id;

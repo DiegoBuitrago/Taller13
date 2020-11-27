@@ -53,7 +53,6 @@ public class Chi {
             if (this.maxNi < this.intros.get(i).getNi()) {
                 this.maxNi = this.intros.get(i).getNi();
             }
-
         }
     }
 
@@ -74,21 +73,24 @@ public class Chi {
     }
 
     private void frecobt(){
+        System.out.println("eee");
         double ini = 0.0;
         double fin = 0.0;
         int count = 0;
         double numNi = 0.0;
-        for (int i=0;i<this.lines.size();i++){
+        for (int i=0;i<this.lines.size();i++) {
             LineChiTest line = this.lines.get(i);
             ini = line.getInitial();
             fin = line.getFinall();
-            for (int j=0;j<this.intros.size();i++){
+            for (int j = 0; j < this.intros.size(); j++) {
                 Intro intro = this.intros.get(j);
                 numNi = intro.getNi();
-                if(numNi > ini && numNi < fin){
+                if (numNi > ini && numNi < fin) {
                     count++;
                 }
             }
+            count = 0;
+            System.out.println(this.lines.get(i).toString());
         }
     }
 

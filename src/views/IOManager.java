@@ -5,11 +5,16 @@ import controller.Events;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 
 public class IOManager extends JFrame {
+    
+    private PanelRiTable panelRiList;
 
-    public IOManager(){
+    public IOManager(Controller controller){
+        initPanels();
+        
         setTitle("Pantalla de Inicio");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setExtendedState(MAXIMIZED_BOTH);
@@ -31,13 +36,15 @@ public class IOManager extends JFrame {
         cpHeader.add(cpBtnImport);
         
         JButton btnImport = new JButton("Importar");
+        btnImport.setActionCommand(Events.IMPORT.toString());
+        btnImport.addActionListener(controller);
         cpBtnImport.add(btnImport);
 
         JPanel cpCenter = new JPanel();
         cpCenter.setLayout(new GridLayout(1, 2));
         add(cpCenter, BorderLayout.CENTER);
 
-        cpCenter.add(new PanelRiTable());
+        cpCenter.add(panelRiList);
 
         JTabbedPane pestañas=new JTabbedPane();
         cpCenter.add(pestañas);
@@ -47,11 +54,28 @@ public class IOManager extends JFrame {
         pestañas.addTab("Prueba KS", new PanelKSTest());
         pestañas.addTab("Prueba Chi^2", new PanelChiSquareTest());
         pestañas.addTab("Prueba de Póker", new PanelPokerTest());
-
+        
         setVisible(true);
     }
+    
+    private void initPanels(){
+        panelRiList = new PanelRiTable();
+    }
 
-    public static void main(String[] args) {
-        new IOManager();
+    public void fillRiList(double ri, double ni){
+        panelRiList.addValues(ri, ni);
+    }
+
+    public String chooseFile(){
+        JFileChooser chooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("csv files", "csv");
+        chooser.setFileFilter(filter);
+        int returnVal = chooser.showOpenDialog(this);
+        if(returnVal == JFileChooser.APPROVE_OPTION) {
+            System.out.println("You chose to open this file: " + chooser.getSelectedFile().getPath());
+            return chooser.getSelectedFile().getPath();
+            // Ir a método read y enviarle file como parametro.
+        }
+        return null;
     }
 }

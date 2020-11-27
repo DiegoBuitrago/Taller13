@@ -16,7 +16,7 @@ public class PanelRiTable extends JPanel {
         add(scrollUserTable);
     }
 
-    public void addMeanSquares(double ri, double ni) {
+    public void addValues(double ri, double ni) {
         tableAdd.addRow(new Object[]{ri, ni});
     }
 }

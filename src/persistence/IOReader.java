@@ -15,10 +15,9 @@ public class IOReader {
 
     private ArrayList<Intro> listRi;
 
-    public void read(){
+    public void read(String path){
         listRi = new ArrayList<>();
-        StringBuilder sb = new StringBuilder();
-        Path filePath = Paths.get("src/files/archivoCsv.csv");
+        Path filePath = Paths.get(path);
         try {
             BufferedReader br = Files.newBufferedReader(filePath);
             String line;
@@ -44,26 +43,7 @@ public class IOReader {
         return newLine;
     }
 
-    public void printList(){
-        for (int i=0; i < listRi.size(); i++){
-            System.out.println(listRi.get(i).getRi());
-        }
-    }
-
-    public void chooseFile(JFrame frame){
-        JFileChooser chooser = new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("csv files", "csv");
-        chooser.setFileFilter(filter);
-        int returnVal = chooser.showOpenDialog(frame);
-        if(returnVal == JFileChooser.APPROVE_OPTION) {
-            System.out.println("You chose to open this file: " + chooser.getSelectedFile().getName());
-            // Ir a método read y enviarle file como parametro.
-        }
-    }
-
-    public static void main(String[] args) {
-        IOReader ioReader = new IOReader();
-        ioReader.read();
-        ioReader.printList();
+    public ArrayList<Intro> getList(){
+        return listRi;
     }
 }

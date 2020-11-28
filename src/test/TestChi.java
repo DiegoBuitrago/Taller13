@@ -1,7 +1,10 @@
 package test;
 
+import data.TableDistribucionChiCuadrado;
 import methodsTest.Chi;
 import models.Intro;
+import models.LineChiTest;
+import utilities.Utility;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -15,13 +18,11 @@ public class TestChi {
 //        Double dou = new Double("0.151");
 //        double hola = dou.doubleValue();
 //        System.out.println(""+hola);
-        double a = 9.5529999999;
-        DecimalFormat df = new DecimalFormat("#.0000");
-        String b = df.format(a);
+//        double a = 9.5529999999;
+//        System.out.println(new Utility().formatDouble(a));
+//        TableDistribucionChiCuadrado tb = new TableDistribucionChiCuadrado();
 
-        System.out.println(b);
-        double c = Double.parseDouble(b);
-        System.out.println(c);
+          p1();
     }
 
     private static void p1(){
@@ -42,11 +43,21 @@ public class TestChi {
         list.add(new Intro(0.1266));
         list.add(new Intro(0.6429));
         list.add(new Intro(0.8298));
-//
+
         int min = 8;
         int max = 10;
         int numIntervalos = 8;
 
-        new Chi(list, min, max, numIntervalos);
+        Chi chi = new Chi(list, min, max, numIntervalos);
+        ArrayList<LineChiTest> lines = chi.getLines();
+
+        for (int i=0;i<lines.size();i++) {
+            System.out.println(lines.get(i).toString());
+        }
+
+        System.out.println(chi.getTotalChi2());
+        System.out.println(chi.getLibertyGrade());
+        System.out.println(chi.getPrueba());
+        System.out.println(chi.isResult());
     }
 }

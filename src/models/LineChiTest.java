@@ -1,5 +1,7 @@
 package models;
 
+import utilities.Utility;
+
 import java.text.DecimalFormat;
 
 public class LineChiTest {
@@ -10,10 +12,17 @@ public class LineChiTest {
     private double frecEsp;
     private double chi;
 
+    private Utility ut;
+
     public LineChiTest(int id, double initial, double finall) {
+        this.ut = new Utility();
         this.id = id;
         this.initial = initial;
         this.finall = finall;
+    }
+
+    public void chi(){
+        this.chi = ut.formatDouble(Math.pow((this.frecObt-this.frecEsp),2)/this.frecEsp);
     }
 
     public double getInitial() {
@@ -28,6 +37,14 @@ public class LineChiTest {
         this.frecObt = frecObt;
     }
 
+    public void setFrecEsp(double frecEsp){
+        this.frecEsp = frecEsp;
+    }
+
+    public double getChi() {
+        return chi;
+    }
+
     @Override
     public String toString() {
         return "LineChiTest{" +
@@ -38,9 +55,5 @@ public class LineChiTest {
                 ", frecEsp=" + frecEsp +
                 ", chi=" + chi +
                 '}';
-    }
-
-    private void format(){
-
     }
 }

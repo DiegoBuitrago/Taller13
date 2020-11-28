@@ -1,12 +1,16 @@
 package models;
 
+import utilities.Utility;
+
 public class Intro {
     private double ri;
     private double ni;
+    private Utility ut;
 
     public Intro(double ri) {
         this.ri = ri;
         this.ni = 0.0;
+        this.ut = new Utility();
     }
 
     public double getRi(){
@@ -14,7 +18,7 @@ public class Intro {
     }
 
     public void calculateNi(int min, int max) {
-        this.ni = min+(max-min)*this.ri;
+        this.ni = ut.formatDouble(min+(max-min)*this.ri);
     }
 
     public double getNi() {

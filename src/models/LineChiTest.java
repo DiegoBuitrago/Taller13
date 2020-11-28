@@ -21,6 +21,10 @@ public class LineChiTest {
         this.finall = finall;
     }
 
+    public int getId(){
+        return id;
+    }
+
     public void chi(){
         this.chi = ut.formatDouble(Math.pow((this.frecObt-this.frecEsp),2)/this.frecEsp);
     }
@@ -43,6 +47,14 @@ public class LineChiTest {
 
     public double getChi() {
         return chi;
+    }
+
+    public int getFrecObt(){
+        return frecObt;
+    }
+
+    public double getFrecEsp(){
+        return frecEsp;
     }
 
     @Override

@@ -30,13 +30,15 @@ public class IOManager extends JFrame {
         cpHeader.add(cpTitle);
 
         JLabel lbIdentify = new JLabel("Pruebas de números pseudoaleatorios");
-        lbIdentify.setFont(new Font("Arial", Font.BOLD, 20));
+        lbIdentify.setFont(new Font("Arial", Font.ITALIC, 25));
         cpTitle.add(lbIdentify);
-        
+
         JPanel cpBtnImport = new JPanel();
         cpHeader.add(cpBtnImport);
-        
+
         JButton btnImport = new JButton("Importar");
+        btnImport.setBackground(Color.ORANGE);
+        btnImport.setFont(new Font("Arial", Font.ITALIC, 15));
         btnImport.setActionCommand(Events.IMPORT.toString());
         btnImport.addActionListener(controller);
         cpBtnImport.add(btnImport);
@@ -50,10 +52,10 @@ public class IOManager extends JFrame {
         JTabbedPane pestañas=new JTabbedPane();
         cpCenter.add(pestañas);
 
+        pestañas.addTab("Prueba Chi^2", panelChiSquareTest);
         pestañas.addTab("Prueba de medias", new PanelMeanTest());
         pestañas.addTab("Prueba de varianza", new PanelVarianceTest());
         pestañas.addTab("Prueba KS", new PanelKSTest());
-        pestañas.addTab("Prueba Chi^2", panelChiSquareTest);
         pestañas.addTab("Prueba de Póker", new PanelPokerTest());
         
         setVisible(true);
@@ -78,6 +80,7 @@ public class IOManager extends JFrame {
         chooser.setFileFilter(filter);
         int returnVal = chooser.showOpenDialog(this);
         if(returnVal == JFileChooser.APPROVE_OPTION) {
+            panelChiSquareTest.activateButton();
             System.out.println("You chose to open this file: " + chooser.getSelectedFile().getPath());
             return chooser.getSelectedFile().getPath();
         }
@@ -86,5 +89,9 @@ public class IOManager extends JFrame {
 
     public int[] getData(){
         return panelChiSquareTest.getData();
+    }
+
+    public void panelChiSetResults(String valueTotalChi, String valueFreedomGrade, String valueTest, boolean valueFulFill){
+        panelChiSquareTest.setResults(valueTotalChi, valueFreedomGrade, valueTest, valueFulFill);
     }
 }

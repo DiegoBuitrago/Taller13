@@ -1,6 +1,7 @@
 package controller;
 
 import methodsTest.Chi;
+import models.LineChiTest;
 import persistence.IOReader;
 import views.IOManager;
 
@@ -44,9 +45,12 @@ public class Controller implements ActionListener {
         int max = ioManager.getData()[1];
         int iterations = ioManager.getData()[2];
         chi = new Chi(ioReader.getList(), min, max, iterations);
+        ioManager.panelChiSetResults(""+ chi.getTotalChi2(), "" + chi.getLibertyGrade(), "" + chi.getPrueba(), chi.isResult());
         System.out.println("Min: " + min + "** Max: " + max + "**It: " + iterations);
         for (int i = 0; i < chi.getLines().size(); i++){
-            //ioManager.fillResultsChi2(chi.getLines().get(i).getInitial());
+            LineChiTest currentLine = chi.getLines().get(i);
+            ioManager.fillResultsChi2(currentLine.getId(), currentLine.getInitial(), currentLine.getFinall(),
+                    currentLine.getFrecObt(), currentLine.getFrecEsp(), currentLine.getChi());
         }
     }
 

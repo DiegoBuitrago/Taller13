@@ -98,7 +98,7 @@ public class Chi {
     }
 
     private double newInterval(double li){
-        return ut.formatDouble(li+(this.maxNi-this.minNi)/numIntervalos);
+        return ut.formatDoubleFour(li+(this.maxNi-this.minNi)/numIntervalos);
     }
 
     private void frecobt(){
@@ -124,7 +124,7 @@ public class Chi {
 
     private void frecEsp() {
         for (int i=0;i<this.lines.size();i++){
-            this.lines.get(i).setFrecEsp(ut.formatDouble((double) (this.intros.size())/(this.lines.size())));
+            this.lines.get(i).setFrecEsp(ut.formatDoubleFour((double) (this.intros.size())/(this.lines.size())));
         }
     }
 
@@ -134,7 +134,7 @@ public class Chi {
             this.lines.get(i).chi();
             sum = sum + this.lines.get(i).getChi();
         }
-        this.totalChi2 = ut.formatDouble(sum);
+        this.totalChi2 = ut.formatDoubleFour(sum);
     }
 
     private void libertyGrade() {

@@ -2,8 +2,6 @@ package models;
 
 import utilities.Utility;
 
-import java.text.DecimalFormat;
-
 public class LineChiTest {
     private int id;
     private double initial;
@@ -26,7 +24,7 @@ public class LineChiTest {
     }
 
     public void chi(){
-        this.chi = ut.formatDouble(Math.pow((this.frecObt-this.frecEsp),2)/this.frecEsp);
+        this.chi = ut.formatDoubleFour(Math.pow((this.frecObt-this.frecEsp),2)/this.frecEsp);
     }
 
     public double getInitial() {

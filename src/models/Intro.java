@@ -30,10 +30,8 @@ public class Intro {
     }
 
     public void calculateCatPoker() {
-        System.out.println("En el intro poker");
         int count1 = 0, count2 = 0, count3 = 0, count4 = 0, count5 = 0, count6 = 0, count7 = 0, count8 = 0, count9 = 0, count0 = 0;
         int dou = (int) (this.ri*100000);
-        System.out.println(dou);
         String st = String.valueOf(dou);
         char ch = ' ';
         for (int i=0;i<st.length();i++) {
@@ -74,20 +72,9 @@ public class Intro {
             }
         }
 
-        System.out.println(count0);
-        System.out.println(count1);
-        System.out.println(count2);
-        System.out.println(count3);
-        System.out.println(count4);
-        System.out.println(count5);
-        System.out.println(count6);
-        System.out.println(count7);
-        System.out.println(count8);
-        System.out.println(count9);
-
         ArrayList<Integer> numbers = new ArrayList();
         int[] counts = {count0, count1, count2, count3, count4, count5, count6, count7, count8, count9};
-        for (int i=0;i<numbers.size();i++) {
+        for (int i=0;i<counts.length;i++) {
             if (counts[i] != 0) {
                 numbers.add(counts[i]);
             }
@@ -101,7 +88,7 @@ public class Intro {
             this.catPoker = 'T';
             for (int j = 0; j < numbers.size(); j++) {
                 if (numbers.get(j) == 3) {
-                    this.catPoker = 'S';
+                    this.catPoker = 'K';
                 }
             }
         } else if (numbers.size() == 2) {
@@ -111,7 +98,6 @@ public class Intro {
                     this.catPoker = 'P';
                 }
             }
-
         } else if (numbers.size() == 1) {
             this.catPoker = 'Q';
         }

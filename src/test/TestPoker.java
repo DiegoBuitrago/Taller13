@@ -48,10 +48,15 @@ public class TestPoker {
         list.add(new Intro(0.99999));
         list.add(new Intro(0.55555));
 
-        new Poker(list);
+        Poker poker = new Poker(list);
 
-//        for (int i=0;i<list.size();i++) {
-//            System.out.println(list.get(i).toString());
-//        }
+        for (int i=0;i<poker.getLines().size();i++) {
+            System.out.println(poker.getLines().get(i).toString());
+        }
+
+        System.out.println(poker.getSumChi2());
+        System.out.println(poker.getLibertyGrade());
+        System.out.println(poker.getPrueba());
+        System.out.println(poker.isResult());
     }
 }

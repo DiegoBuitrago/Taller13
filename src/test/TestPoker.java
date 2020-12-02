@@ -1,9 +1,7 @@
 package test;
 
-import methodsTest.Chi;
 import methodsTest.Poker;
 import models.Intro;
-import models.LineChiTest;
 
 import java.util.ArrayList;
 
@@ -56,7 +54,7 @@ public class TestPoker {
 
         System.out.println(poker.getSumChi2());
         System.out.println(poker.getLibertyGrade());
-        System.out.println(poker.getPrueba());
+        System.out.println(poker.getDistributionChi());
         System.out.println(poker.isResult());
     }
 }

@@ -8,6 +8,9 @@ public class LineKsTest {
     private int corr;
     private int frecAcu;
     private double probFrecObt;
+    private double frecAcuEsp;
+    private double probFrecAcuEsp;
+    private double diference;
 
     public LineKsTest(int id, double initial, double finall){
         this.id = id;
@@ -17,6 +20,8 @@ public class LineKsTest {
         this.corr = 0;
         this.frecAcu= 0 ;
         this.probFrecObt = 0.0;
+        this.frecAcuEsp = 0.0;
+        this.probFrecAcuEsp = 0.0;
     }
 
     public int getId() {
@@ -63,6 +68,30 @@ public class LineKsTest {
         this.probFrecObt = probFrecObt;
     }
 
+    public double getFrecAcuEsp() {
+        return frecAcuEsp;
+    }
+
+    public void setFrecAcuEsp(double frecAcuEsp) {
+        this.frecAcuEsp = frecAcuEsp;
+    }
+
+    public double getProbFrecAcuEsp() {
+        return probFrecAcuEsp;
+    }
+
+    public void setProbFrecAcuEsp(double probFrecAcuEsp) {
+        this.probFrecAcuEsp = probFrecAcuEsp;
+    }
+
+    public double getDiference() {
+        return diference;
+    }
+
+    public void setDiference(double diference) {
+        this.diference = diference;
+    }
+
     @Override
     public String toString() {
         return "LineKsTest{" +
@@ -73,6 +102,9 @@ public class LineKsTest {
                 ", corr=" + corr +
                 ", frecAcu=" + frecAcu +
                 ", probFrecObt=" + probFrecObt +
+                ", frecAcuEsp=" + frecAcuEsp +
+                ", probAcuEsp=" + probFrecAcuEsp +
+                ", diference=" + diference +
                 '}';
     }
 }

@@ -1,12 +1,9 @@
 package test;
 
-import data.TableDistribucionChiCuadrado;
 import methodsTest.Chi;
 import models.Intro;
 import models.LineChiTest;
-import utilities.Utility;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class TestChi {
@@ -55,7 +52,7 @@ public class TestChi {
 
         System.out.println(chi.getTotalChi2());
         System.out.println(chi.getLibertyGrade());
-        System.out.println(chi.getPrueba());
+        System.out.println(chi.getDistributionChi());
         System.out.println(chi.isResult());
     }
 }

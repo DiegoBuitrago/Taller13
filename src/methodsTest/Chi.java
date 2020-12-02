@@ -16,7 +16,7 @@ public class Chi {
 
     private double totalChi2;
     private int libertyGrade;
-    private double prueba;
+    private double distributionChi;
     private boolean result;
 
     private ArrayList<LineChiTest> lines;
@@ -36,7 +36,7 @@ public class Chi {
 
         this.totalChi2 = 0.0;
         this.libertyGrade = 0;
-        this.prueba = 0.0;
+        this.distributionChi = 0.0;
         this.result = false;
 
         init();
@@ -136,11 +136,11 @@ public class Chi {
     }
 
     private void prueba(){
-        this.prueba = this.tableDistribucionChiCuadrado.getdata(this.libertyGrade);
+        this.distributionChi = this.tableDistribucionChiCuadrado.getdata(this.libertyGrade);
     }
 
     private void result() {
-        if (this.prueba > this.totalChi2) {
+        if (this.distributionChi > this.totalChi2) {
             this.result = true;
         } else {
             this.result = false;
@@ -163,8 +163,8 @@ public class Chi {
         return libertyGrade;
     }
 
-    public double getPrueba() {
-        return prueba;
+    public double getDistributionChi() {
+        return distributionChi;
     }
 
     public boolean isResult() {

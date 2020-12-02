@@ -31,6 +31,15 @@ public class TestKS {
 
         int numIntervalos = 10;
 
-        new Ks(list, numIntervalos);
+        Ks ks = new Ks(list, numIntervalos);
+
+        for (int i=0;i<ks.getLines().size();i++) {
+            System.out.println(ks.getLines().get(i).toString());
+        }
+
+        System.out.println(ks.getDiferenceMax());
+        System.out.println(ks.getDistributionKS());
+        System.out.println(ks.isResult());
+
     }
 }

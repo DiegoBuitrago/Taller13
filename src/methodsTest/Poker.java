@@ -14,7 +14,7 @@ public class Poker {
 
     private double sumChi2;
     private int libertyGrade;
-    private double prueba;
+    private double distributionChi;
     private boolean result;
 
     private ArrayList<LinePokerTest> lines;
@@ -30,7 +30,7 @@ public class Poker {
 
         this.sumChi2 = 0;
         this.libertyGrade = 0;
-        this.prueba = 0.0;
+        this.distributionChi = 0.0;
         this.result = false;
 
         init();
@@ -102,11 +102,11 @@ public class Poker {
     }
 
     private void prueba() {
-        this.prueba = this.tableDistribucionChiCuadrado.getdata(this.libertyGrade);
+        this.distributionChi = this.tableDistribucionChiCuadrado.getdata(this.libertyGrade);
     }
 
     private void result() {
-        if (this.prueba > this.sumChi2) {
+        if (this.distributionChi > this.sumChi2) {
             this.result = true;
         } else {
             this.result = false;
@@ -129,8 +129,8 @@ public class Poker {
         return libertyGrade;
     }
 
-    public double getPrueba() {
-        return prueba;
+    public double getDistributionChi() {
+        return distributionChi;
     }
 
     public boolean isResult() {

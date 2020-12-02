@@ -8,12 +8,14 @@ public class Intro {
     private double ri;
     private double ni;
     private char catPoker;
+    private double normalization;
     private Utility ut;
 
     public Intro(double ri) {
         this.ut = new Utility();
         this.ri = ut.formatDoubleFive(ri);
         this.ni = 0.0;
+        this.normalization = 0.0;
         this.catPoker = ' ';
     }
 

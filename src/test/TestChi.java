@@ -44,11 +44,9 @@ public class TestChi {
         list.add(new Intro(0.6429));
         list.add(new Intro(0.8298));
 
-        int min = 8;
-        int max = 10;
         int numIntervalos = 8;
 
-        Chi chi = new Chi(list, min, max, numIntervalos);
+        Chi chi = new Chi(list, numIntervalos);
         ArrayList<LineChiTest> lines = chi.getLines();
 
         for (int i=0;i<lines.size();i++) {

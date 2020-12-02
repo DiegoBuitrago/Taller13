@@ -44,7 +44,7 @@ public class Controller implements ActionListener {
         int min = ioManager.getData()[0];
         int max = ioManager.getData()[1];
         int iterations = ioManager.getData()[2];
-        chi = new Chi(ioReader.getList(), min, max, iterations);
+        //chi = new Chi(ioReader.getList(), min, max, iterations);
         ioManager.panelChiSetResults(""+ chi.getTotalChi2(), "" + chi.getLibertyGrade(), "" + chi.getPrueba(), chi.isResult());
         System.out.println("Min: " + min + "** Max: " + max + "**It: " + iterations);
         for (int i = 0; i < chi.getLines().size(); i++){

@@ -12,8 +12,6 @@ public class PanelChiSquareTest extends JPanel {
     private DefaultTableModel tableResultAdd;
     private JTable tableResult;
 
-    private JSpinner spMin;
-    private JSpinner spMax;
     private JSpinner spIteration;
     
     private JLabel lbValueTotalChi;
@@ -50,6 +48,7 @@ public class PanelChiSquareTest extends JPanel {
         cpFirst.setLayout(new GridLayout(3,1));
         cpContData.add(cpFirst);
 
+        /*
         JLabel lbMin = new JLabel("Mínimo: ");
         lbMin.setFont(new Font("Arial", Font.ITALIC, 15));
         cpFirst.add(lbMin);
@@ -63,6 +62,8 @@ public class PanelChiSquareTest extends JPanel {
 
         spMax = new JSpinner();
         cpFirst.add(spMax);
+
+         */
 
         JLabel lbIteration = new JLabel("Iteraciones: ");
         lbIteration.setFont(new Font("Arial", Font.ITALIC, 15));
@@ -120,12 +121,8 @@ public class PanelChiSquareTest extends JPanel {
         return cpContResult;
     }
 
-    public int [] getData(){
-        int[] dataList = new int[3];
-        dataList[0] = (Integer) spMin.getValue();
-        dataList[1] = (Integer) spMax.getValue();
-        dataList[2] = (Integer) spIteration.getValue();
-        return dataList;
+    public int getData(){
+        return (Integer) spIteration.getValue();
     }
     
     public void setResults(String valueTotalChi, String valueFreedomGrade, String valueTest, boolean valueFulFill){

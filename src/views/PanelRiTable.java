@@ -10,13 +10,13 @@ public class PanelRiTable extends JPanel {
 
     public PanelRiTable(){
         tableAdd = new DefaultTableModel();
-        tableAdd.setColumnIdentifiers(new String [] {"Ri", "Ni"});
+        tableAdd.setColumnIdentifiers(new String [] {"Ri"});
         table = new JTable(tableAdd);
         JScrollPane scrollUserTable = new JScrollPane(table);
         add(scrollUserTable);
     }
 
-    public void addValues(double ri, double ni) {
-        tableAdd.addRow(new Object[]{ri, ni});
+    public void addRis(double ri) {
+        tableAdd.addRow(new Object[]{ri});
     }
 }

@@ -31,9 +31,10 @@ public class TestVarianza {
 
         Varianza varianza = new Varianza(list);
 
-//        System.out.println(medias.getRiProm());
-//        System.out.println(medias.getLi());
-//        System.out.println(medias.getLs());
-//        System.out.println(medias.isResult());
+        System.out.println(varianza.getRiProm());
+        System.out.println(varianza.getVarianza());
+        System.out.println(varianza.getLi());
+        System.out.println(varianza.getLs());
+        System.out.println(varianza.isResult());
     }
 }

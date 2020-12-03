@@ -1,8 +1,6 @@
 package controller;
 
-import methodsTest.Chi;
-import methodsTest.Ks;
-import methodsTest.Poker;
+import methodsTest.*;
 import models.LineChiTest;
 import models.LineKsTest;
 import models.LinePokerTest;
@@ -36,6 +34,12 @@ public class Controller implements ActionListener {
                 break;
             case CALCULATE_KS_TEST:
                 calculateKS();
+                break;
+            case CALCULATE_MEAN_TEST:
+                calculateMeanTest();
+                break;
+            case CALCULATE_VARIANCE_TEST:
+                calculateVarianceTest();
                 break;
         }
     }
@@ -71,6 +75,16 @@ public class Controller implements ActionListener {
                     currentLine.getFrecObt(), currentLine.getCorr(), currentLine.getFrecAcu(),
                     currentLine.getProbFrecObt(), currentLine.getFrecAcuEsp(), currentLine.getProbFrecAcuEsp(), currentLine.getDiference());
         }
+    }
+
+    private void calculateMeanTest(){
+        Medias medias = new Medias(ioReader.getList());
+        ioManager.setPanelMiddleResults("" + medias.getRiProm(), "" + medias.getLi(), "" + medias.getLs(), medias.isResult());
+    }
+
+    private void calculateVarianceTest(){
+        Varianza varianza = new Varianza(ioReader.getList());
+        ioManager.setPanelVariance("" + varianza.getRiProm(), "" + varianza.getLi(), "" + varianza.getLs(), "" + varianza.getVarianza(), varianza.isResult());
     }
 
     private void importFile(){

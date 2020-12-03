@@ -47,7 +47,7 @@ public class PanelKSTest extends JPanel {
 
         JPanel cpFirst = new JPanel();
         cpFirst.setBorder(BorderFactory.createTitledBorder("Datos"));
-        cpFirst.setLayout(new GridLayout(1,2));
+        cpFirst.setLayout(new GridLayout(3,2));
         cpContData.add(cpFirst);
 
         JLabel lbIteration = new JLabel("Iteraciones: ");

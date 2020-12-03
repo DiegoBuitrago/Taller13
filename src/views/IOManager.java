@@ -16,6 +16,8 @@ public class IOManager extends JFrame {
     private PanelChiSquareTest panelChiSquareTest;
     private PanelPokerTest panelPokerTest;
     private PanelKSTest panelKSTest;
+    private PanelMeanTest panelMeanTest;
+    private PanelVarianceTest panelVarianceTest;
 
     public IOManager(Controller controller){
         initPanels(controller);
@@ -59,8 +61,8 @@ public class IOManager extends JFrame {
 
 
         pestañas.addTab("Prueba Chi^2", panelChiSquareTest);
-        pestañas.addTab("Prueba de medias", new PanelMeanTest());
-        pestañas.addTab("Prueba de varianza", new PanelVarianceTest());
+        pestañas.addTab("Prueba de medias", panelMeanTest);
+        pestañas.addTab("Prueba de varianza", panelVarianceTest);
         pestañas.addTab("Prueba KS", panelKSTest);
         pestañas.addTab("Prueba de Póker", panelPokerTest);
         pestañas.addTab("Ni", panelNiList);
@@ -74,6 +76,8 @@ public class IOManager extends JFrame {
         panelChiSquareTest = new PanelChiSquareTest(controller);
         panelPokerTest = new PanelPokerTest(controller);
         panelKSTest = new PanelKSTest(controller);
+        panelMeanTest = new PanelMeanTest(controller);
+        panelVarianceTest = new PanelVarianceTest(controller);
     }
 
     public void fillRiList(double ri){
@@ -119,10 +123,15 @@ public class IOManager extends JFrame {
         return panelKSTest.getIterations();
     }
 
-    public void setPanelKSResults(){
-
+    //Panel Medias
+    public void setPanelMiddleResults(String riProm, String li, String ls, boolean valueFulFill){
+        panelMeanTest.setResults(riProm, li, ls, valueFulFill);
     }
 
+    //Panel Varianza
+    public void setPanelVariance(String riProm, String li, String ls, String variance, boolean valueFulFill){
+        panelVarianceTest.setResults(riProm, li, ls, variance, valueFulFill);
+    }
 
 
     public String chooseFile(){
@@ -134,6 +143,8 @@ public class IOManager extends JFrame {
             panelChiSquareTest.activateButton();
             panelPokerTest.activateButton();
             panelKSTest.activateButton();
+            panelMeanTest.activateButton();
+            panelVarianceTest.activateButton();
             System.out.println("You chose to open this file: " + chooser.getSelectedFile().getPath());
             return chooser.getSelectedFile().getPath();
         }

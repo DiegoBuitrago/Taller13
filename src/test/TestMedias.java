@@ -1,15 +1,12 @@
 package test;
-
-import methodsTest.Chi;
+import methodsTest.Medias;
 import models.Intro;
-import models.LineChiTest;
 
 import java.util.ArrayList;
 
-public class TestChi {
-
+public class TestMedias {
     public static void main(String[] args) {
-          p1();
+        p1();
     }
 
     private static void p1(){
@@ -31,18 +28,11 @@ public class TestChi {
         list.add(new Intro(0.6429));
         list.add(new Intro(0.8298));
 
-        int numIntervalos = 8;
+        Medias medias = new Medias(list);
 
-        Chi chi = new Chi(list, numIntervalos);
-        ArrayList<LineChiTest> lines = chi.getLines();
-
-        for (int i=0;i<lines.size();i++) {
-            System.out.println(lines.get(i).toString());
-        }
-
-        System.out.println(chi.getTotalChi2());
-        System.out.println(chi.getLibertyGrade());
-        System.out.println(chi.getDistributionChi());
-        System.out.println(chi.isResult());
+        System.out.println(medias.getRiProm());
+        System.out.println(medias.getLi());
+        System.out.println(medias.getLs());
+        System.out.println(medias.isResult());
     }
 }
